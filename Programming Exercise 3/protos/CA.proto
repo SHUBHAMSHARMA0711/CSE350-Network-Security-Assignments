@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+service CertificateAuthority {
+    rpc RegisterClient(ClientInfo) returns (RegistrationResponse) {}
+    rpc IssueCertificate(ClientID) returns (Certificate) {}
+}
+
+message ClientInfo {
+    string client_id = 1;
+    Key public_key = 2;
+}
+
+message Key {
+    string e = 1;
+    string n = 2;
+}
+
+message RegistrationResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message ClientID {
+    string id = 1;
+}
+
+message Certificate {
+    string certificate = 2;
+}

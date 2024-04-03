@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service ClientCommunication {
+  rpc ReceiveMessage(Message) returns (Acknowledgement) {}
+}
+
+message Message {
+  string message = 1;
+}
+
+message Acknowledgement {
+  string acknowledgement = 1;
+}
