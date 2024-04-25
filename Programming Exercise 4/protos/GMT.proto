@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+service TimeStampService {
+  rpc GetDocumentTimeStamp (TimeStampRequest) returns (TimeStampResponse) {}
+}
+
+message TimeStampRequest {
+  bytes document = 1;
+}
+
+message TimeStampResponse {
+  string signature = 1;
+  string timestamp = 2;
+}
